@@ -1,9 +1,13 @@
 import React from "react";
+import { Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <h2>This is APp</h2>
+      <Route>
+        <Home />
+      </Route>
     </div>
   );
 }

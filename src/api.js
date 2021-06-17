@@ -4,6 +4,4 @@ const baseURL = `http://www.omdbapi.com/?apikey=${key}&r=json&`;
 
 const movie = "type=movie&plot=full";
 
-export const searchMovieURL = (search) => {
-  `${baseURL}${movie}&t=${search}`;
-};
+export const searchMovieURL = (search) => `${baseURL}${movie}&t=${search}`;
