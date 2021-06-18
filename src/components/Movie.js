@@ -25,7 +25,6 @@ const Movie = ({ search }) => {
         />
         <div className="ratings">
           <p>IMDb Rating: {movie.imdbRating}/10</p>
-          <p>Rotten Tomatoes: {movie.Ratings[1].Value}</p>
         </div>
       </div>
       <div className="content">

@@ -20,7 +20,7 @@ const Home = () => {
         <input type="text" value={inp} onChange={handleInputChange} />
         <button onClick={handleSearchSubmit}>ClickME</button>
       </form>
-      <Movie search={search} />
+      {search && <Movie search={search} />}
     </div>
   );
 };
