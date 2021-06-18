@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 // thunk is needed for async await functions
 import thunk from "redux-thunk";
 
-// this variable is how we add thunk to the store sence you can only have 2 arguments
+// this variable is how we add thunk to the store since you can only have 2 arguments
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadMovie } from "../actions/moviesAction";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import filler from "../images/filler.jpg";
 
 const Movie = ({ search }) => {
   const dispatch = useDispatch();
@@ -11,13 +14,16 @@ const Movie = ({ search }) => {
   // get data from state
   const { movie } = useSelector((state) => state.movies);
   console.log(movie);
+  console.log(movie.Poster);
 
   return (
-    <div>
+    <MovieStyle>
       <h2>{movie.Title}</h2>
-      <img src={movie.Poster} alt="poster" />
-    </div>
+      <img src={movie.Poster === "N/A" ? filler : movie.Poster} alt="poster" />
+    </MovieStyle>
   );
 };
+
+const MovieStyle = styled(motion.div)``;
 
 export default Movie;
