@@ -8,14 +8,18 @@ const Home = () => {
   const handleInputChange = (e) => {
     setInp(e.target.value);
   };
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
     setSearch(inp);
+    setInp("");
   };
 
   return (
     <div>
-      <input type="text" onChange={handleInputChange} />
-      <button onClick={handleSearchSubmit}>ClickME</button>
+      <form>
+        <input type="text" value={inp} onChange={handleInputChange} />
+        <button onClick={handleSearchSubmit}>ClickME</button>
+      </form>
       <Movie search={search} />
     </div>
   );

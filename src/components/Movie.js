@@ -14,7 +14,6 @@ const Movie = ({ search }) => {
   // get data from state
   const { movie } = useSelector((state) => state.movies);
   console.log(movie);
-  console.log(movie.Poster);
 
   return (
     <MovieStyle>
