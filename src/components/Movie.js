@@ -17,8 +17,31 @@ const Movie = ({ search }) => {
 
   return (
     <MovieStyle>
-      <h2>{movie.Title}</h2>
-      <img src={movie.Poster === "N/A" ? filler : movie.Poster} alt="poster" />
+      <div>
+        <h2>{movie.Title}</h2>
+        <img
+          src={movie.Poster === "N/A" ? filler : movie.Poster}
+          alt="poster"
+        />
+        <div className="ratings">
+          <p>IMDb Rating: {movie.imdbRating}/10</p>
+          <p>Rotten Tomatoes: {movie.Ratings[1].Value}</p>
+        </div>
+      </div>
+      <div className="content">
+        <div className="plot">
+          <p>{movie.Plot}</p>
+        </div>
+        <div className="info">
+          <p>Released: {movie.Released}</p>
+          <p>Runtime: {movie.Runtime}</p>
+          <p>Actors: {movie.Actors}</p>
+          <p>Genre: {movie.Genre}</p>
+          <p>Awards: {movie.Awards}</p>
+          <p>Director(s): {movie.Director}</p>
+          <p>Writer(s): {movie.Writer}</p>
+        </div>
+      </div>
     </MovieStyle>
   );
 };
