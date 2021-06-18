@@ -17,34 +17,93 @@ const Movie = ({ search }) => {
 
   return (
     <MovieStyle>
-      <div>
+      <div className="content">
         <h2>{movie.Title}</h2>
-        <img
-          src={movie.Poster === "N/A" ? filler : movie.Poster}
-          alt="poster"
-        />
-        <div className="ratings">
-          <p>IMDb Rating: {movie.imdbRating}/10</p>
+        <div className="test">
+          <div className="picture">
+            <img
+              src={movie.Poster === "N/A" ? filler : movie.Poster}
+              alt="poster"
+            />
+            <div className="ratings">
+              <p>IMDb Rating: {movie.imdbRating}/10</p>
+              <p>MetaScore: {movie.Metascore}</p>
+            </div>
+          </div>
+          <div className="info">
+            <p>Released: {movie.Released}</p>
+            <p>Runtime: {movie.Runtime}</p>
+            <p>Rated: {movie.Rated}</p>
+            <p>Genre: {movie.Genre}</p>
+          </div>
         </div>
       </div>
-      <div className="content">
-        <div className="plot">
-          <p>{movie.Plot}</p>
-        </div>
-        <div className="info">
-          <p>Released: {movie.Released}</p>
-          <p>Runtime: {movie.Runtime}</p>
-          <p>Actors: {movie.Actors}</p>
-          <p>Genre: {movie.Genre}</p>
-          <p>Awards: {movie.Awards}</p>
-          <p>Director(s): {movie.Director}</p>
-          <p>Writer(s): {movie.Writer}</p>
-        </div>
+      <div className="plot">
+        <p>{movie.Plot}</p>
+      </div>
+      <div>
+        <p>Awards: {movie.Awards}</p>
+        <p>Actors: {movie.Actors}</p>
+        <p>Director(s): {movie.Director}</p>
+        <p>Writer(s): {movie.Writer}</p>
       </div>
     </MovieStyle>
   );
 };
 
-const MovieStyle = styled(motion.div)``;
+const MovieStyle = styled(motion.div)`
+  min-height: 90vh;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  .ratings {
+    display: flex;
+    justify-content: center;
+    p {
+      margin: 0rem 1rem;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    .test {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .picture {
+      margin: 0rem 1rem;
+      img {
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0rem 1rem;
+      p {
+        margin: 2rem 0rem;
+      }
+    }
+  }
+  .plot {
+    margin: 2rem 0rem;
+    p {
+      font-size: 1.5rem;
+    }
+  }
+`;
 
 export default Movie;

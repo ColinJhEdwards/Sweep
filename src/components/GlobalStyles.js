@@ -9,5 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
     font-family: 'Staatliches', cursive;
+    background: #1d1d1d;
+    color: white;
 }
 `;
