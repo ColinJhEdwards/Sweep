@@ -24,16 +24,6 @@ const Movie = ({ search }) => {
       <div className="content">
         <h2>{movie.Title}</h2>
         <div className="test">
-          <div className="picture">
-            <img
-              src={movie.Poster === "N/A" ? filler : movie.Poster}
-              alt="poster"
-            />
-            <div className="ratings">
-              <p>IMDb Rating: {movie.imdbRating}/10</p>
-              <p>MetaScore: {movie.Metascore}</p>
-            </div>
-          </div>
           <div className="video">
             <iframe src={videoSrc} frameborder="0"></iframe>
           </div>
@@ -45,8 +35,20 @@ const Movie = ({ search }) => {
           </div>
         </div>
       </div>
-      <div className="plot">
-        <p>{movie.Plot}</p>
+      <div className="wrap">
+        <div className="picture">
+          <img
+            src={movie.Poster === "N/A" ? filler : movie.Poster}
+            alt="poster"
+          />
+          <div className="ratings">
+            <p>IMDb Rating: {movie.imdbRating}/10</p>
+            <p>MetaScore: {movie.Metascore}</p>
+          </div>
+        </div>
+        <div className="plot">
+          <p>{movie.Plot}</p>
+        </div>
       </div>
       <div>
         <p>Awards: {movie.Awards}</p>
@@ -90,11 +92,10 @@ const MovieStyle = styled(motion.div)`
       align-items: center;
       justify-content: space-around;
     }
-    .picture {
-      margin: 0rem 1rem;
-      img {
-        box-shadow: 0px 0px 20px rgb(0, 0, 0);
-        border-radius: 10px;
+    .video {
+      iframe {
+        height: 500px;
+        width: 800px;
       }
     }
     .info {
@@ -106,6 +107,18 @@ const MovieStyle = styled(motion.div)`
       p {
         margin: 2rem 0rem;
       }
+    }
+  }
+  .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture {
+    margin: 1rem;
+    img {
+      box-shadow: 0px 0px 20px rgb(0, 0, 0);
+      border-radius: 10px;
     }
   }
   .plot {
