@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 import { GlobalStyles } from "./components/GlobalStyles";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyles />
+      <Nav />
       <Switch location={location} key={location.key}>
         <Route path={"/"}>
           <Home />

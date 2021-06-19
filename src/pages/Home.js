@@ -3,6 +3,8 @@ import Movie from "../components/Movie";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -27,7 +29,9 @@ const Home = () => {
       <div className="form">
         <form>
           <input type="text" value={inp} onChange={handleInputChange} />
-          <button onClick={handleSearchSubmit}>O</button>
+          <button onClick={handleSearchSubmit}>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </form>
       </div>
       {search && <Movie search={search} />}
@@ -57,6 +61,11 @@ const StyledHome = styled(motion.div)`
       cursor: pointer;
       padding: 0.7rem 1rem;
       margin-left: 1rem;
+      transition: all ease 0.5s;
+      &:hover {
+        color: #0b0ba5;
+        background: white;
+      }
     }
   }
 `;

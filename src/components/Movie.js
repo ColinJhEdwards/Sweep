@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import filler from "../images/filler.jpg";
 import { grow } from "../animations";
-import axios from "axios";
 
 const Movie = ({ search }) => {
   const dispatch = useDispatch();
@@ -50,11 +49,19 @@ const Movie = ({ search }) => {
           <p>{movie.Plot}</p>
         </div>
       </div>
-      <div>
-        <p>Awards: {movie.Awards}</p>
-        <p>Actors: {movie.Actors}</p>
-        <p>Director(s): {movie.Director}</p>
-        <p>Writer(s): {movie.Writer}</p>
+      <div className="awards">
+        <p>
+          <span>Awards:</span> {movie.Awards}
+        </p>
+        <p>
+          <span>Actors:</span> {movie.Actors}
+        </p>
+        <p>
+          <span>Director(s):</span> {movie.Director}
+        </p>
+        <p>
+          <span>Writer(s):</span> {movie.Writer}
+        </p>
       </div>
     </MovieStyle>
   );
@@ -69,6 +76,9 @@ const MovieStyle = styled(motion.div)`
   align-items: center;
   justify-content: space-around;
   text-align: center;
+  span {
+    color: #0000ff;
+  }
   .ratings {
     display: flex;
     justify-content: center;
@@ -115,7 +125,7 @@ const MovieStyle = styled(motion.div)`
     align-items: center;
   }
   .picture {
-    margin: 1rem;
+    margin: 2rem 1rem;
     img {
       box-shadow: 0px 0px 20px rgb(0, 0, 0);
       border-radius: 10px;
@@ -123,8 +133,18 @@ const MovieStyle = styled(motion.div)`
   }
   .plot {
     margin: 2rem 0rem;
+
     p {
       font-size: 1.5rem;
+    }
+  }
+  .awards {
+    display: flex;
+    margin: 2rem 0rem;
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+    p {
+      margin: 1rem;
     }
   }
 `;

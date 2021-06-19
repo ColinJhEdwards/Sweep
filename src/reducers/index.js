@@ -2,6 +2,7 @@
 import { combineReducers } from "redux";
 // import reducers
 import moviesReducer from "./moviesReducer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //give the reducer a name so it can be referenced
 const rootReducer = combineReducers({
