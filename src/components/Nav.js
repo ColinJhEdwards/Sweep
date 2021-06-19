@@ -1,12 +1,41 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+import { Navbar, Nav } from "react-bootstrap";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBroom } from "@fortawesome/free-solid-svg-icons";
 
-const Nav = () => {
+const NavC = () => {
   return (
-    <div>
-      <Navbar />
-    </div>
+    <StyledNav>
+      <Navbar
+        className="navEdit"
+        collapseOnSelect
+        expand="lg"
+        // bg="dark"
+        variant="dark"
+      >
+        <Navbar.Brand href="#home">
+          Sweep <FontAwesomeIcon className="sweepIcon" icon={faBroom} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto justify-content-end">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </StyledNav>
   );
 };
 
-export default Nav;
+const StyledNav = styled.div`
+  .navEdit {
+    background: #0202a7;
+    .sweepIcon {
+      color: #c07d00;
+    }
+  }
+`;
+
+export default NavC;

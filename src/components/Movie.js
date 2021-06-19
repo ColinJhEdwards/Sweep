@@ -77,7 +77,7 @@ const MovieStyle = styled(motion.div)`
   justify-content: space-around;
   text-align: center;
   span {
-    color: #0000ff;
+    color: #3b3bff;
   }
   .ratings {
     display: flex;
@@ -116,6 +116,7 @@ const MovieStyle = styled(motion.div)`
       margin: 0rem 1rem;
       p {
         margin: 2rem 0rem;
+        font-size: 1.5rem;
       }
     }
   }

@@ -7,8 +7,9 @@ export const loadMovie = (search) => async (dispatch) => {
   dispatch({
     type: "FETCH_MOVIE",
     payload: {
-      //after axios fetches the data add it to the movie payload
+      //after axios fetches the data add it to the payload
       movie: searchedMovie.data,
+      // selecting only the videoID from youtube video api so the id can be placed in the iframe src
       trailer: searchedTrailer.data.items[0].id.videoId,
     },
   });
