@@ -4,7 +4,16 @@ import { loadMovie } from "../actions/moviesAction";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import filler from "../images/filler.jpg";
-import { grow } from "../animations";
+import { grow, xSlide, ySlide, fade } from "../animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendar,
+  faUsers,
+  faClock,
+  faAward,
+  faBullhorn,
+  faPen,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Movie = ({ search }) => {
   const dispatch = useDispatch();
@@ -20,20 +29,39 @@ const Movie = ({ search }) => {
 
   return (
     <MovieStyle variants={grow}>
-      <div className="content">
-        <h2>{movie.Title}</h2>
+      <motion.div variants={fade} className="content">
+        <Hide>
+          <motion.h2 variants={ySlide}>{movie.Title}</motion.h2>
+        </Hide>
+        <Line></Line>
         <div className="test">
-          <div className="video">
-            <iframe src={videoSrc} frameborder="0"></iframe>
-          </div>
+          <Hide>
+            <motion.div variants={ySlide} className="video">
+              <iframe src={videoSrc} frameborder="0"></iframe>
+            </motion.div>
+          </Hide>
           <div className="info">
-            <p>Released: {movie.Released}</p>
-            <p>Runtime: {movie.Runtime}</p>
-            <p>Rated: {movie.Rated}</p>
-            <p>Genre: {movie.Genre}</p>
+            <Hide>
+              <motion.p variants={xSlide}>
+                <FontAwesomeIcon className="orange" icon={faCalendar} />{" "}
+                {movie.Released}
+              </motion.p>
+            </Hide>
+            <Hide>
+              <motion.p variants={xSlide}>
+                <FontAwesomeIcon className="orange" icon={faClock} />{" "}
+                {movie.Runtime}
+              </motion.p>
+            </Hide>
+            <Hide>
+              <motion.p variants={xSlide}>Rated: {movie.Rated}</motion.p>
+            </Hide>
+            <Hide>
+              <motion.p variants={xSlide}>Genre: {movie.Genre}</motion.p>
+            </Hide>
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="wrap">
         <div className="picture">
           <img
@@ -49,18 +77,31 @@ const Movie = ({ search }) => {
           <p>{movie.Plot}</p>
         </div>
       </div>
+      <Line></Line>
       <div className="awards">
         <p>
-          <span>Awards:</span> {movie.Awards}
+          <span>
+            <FontAwesomeIcon icon={faAward} /> Awards:{" "}
+          </span>{" "}
+          {movie.Awards}
         </p>
         <p>
-          <span>Actors:</span> {movie.Actors}
+          <span>
+            <FontAwesomeIcon icon={faUsers} /> Actors:{" "}
+          </span>{" "}
+          {movie.Actors}
         </p>
         <p>
-          <span>Director(s):</span> {movie.Director}
+          <span>
+            <FontAwesomeIcon icon={faBullhorn} /> Director(s):{" "}
+          </span>{" "}
+          {movie.Director}
         </p>
         <p>
-          <span>Writer(s):</span> {movie.Writer}
+          <span>
+            <FontAwesomeIcon icon={faPen} /> Writer(s):{" "}
+          </span>{" "}
+          {movie.Writer}
         </p>
       </div>
     </MovieStyle>
@@ -70,7 +111,7 @@ const Movie = ({ search }) => {
 const MovieStyle = styled(motion.div)`
   min-height: 90vh;
   width: 60%;
-  margin: auto;
+  margin: 0rem auto 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +155,9 @@ const MovieStyle = styled(motion.div)`
       align-items: center;
       justify-content: center;
       margin: 0rem 1rem;
+      .orange {
+        color: #c07d00;
+      }
       p {
         margin: 2rem 0rem;
         font-size: 1.5rem;
@@ -148,6 +192,18 @@ const MovieStyle = styled(motion.div)`
       margin: 1rem;
     }
   }
+`;
+
+const Line = styled.div`
+  width: 70%;
+  height: 2px;
+  margin: 0rem auto 2rem auto;
+  border-radius: 20px;
+  background: #c07d00;
+`;
+
+const Hide = styled.div`
+  overflow: hidden;
 `;
 
 export default Movie;

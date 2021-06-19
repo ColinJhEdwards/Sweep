@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,16 +16,17 @@ const NavC = () => {
         variant="dark"
       >
         <Navbar.Brand className="brand" href="#home">
-          Sweep <FontAwesomeIcon className="sweepIcon" icon={faFilm} />
+          <Link to="/"> Sweep </Link>
+          <FontAwesomeIcon className="sweepIcon" icon={faFilm} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link className="p" href="#features">
-              Home
+            <Nav.Link className="p">
+              <Link to="/">Home</Link>
             </Nav.Link>
-            <Nav.Link className="p" href="#pricing">
-              Search
+            <Nav.Link className="p">
+              <Link to="/search">Search</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -38,19 +40,19 @@ const StyledNav = styled.div`
     background: #0202a7;
     .brand {
       font-size: 2rem;
-    }
-    .sweepIcon {
-      color: #c07d00;
+      transition: all ease 0.5s;
+      &:hover {
+        color: #c07d00;
+      }
+      .sweepIcon {
+        color: #c07d00;
+      }
     }
     .ml-auto {
       font-size: 2rem;
       .p {
         color: white;
         margin: 0rem 2rem;
-        transition: all ease 0.5s;
-        &:hover {
-          color: #c07d00;
-        }
       }
     }
   }

@@ -24,17 +24,17 @@ export const pageAnimation = {
   },
 };
 
-export const slider = {
-  hidden: { y: "130%" },
+export const ySlide = {
+  hidden: { y: "150%" },
   show: {
     y: "0%",
 
-    transition: { duration: 1 },
+    transition: { duration: 1, delay: 0.5 },
   },
 };
 
-export const svgSlide = {
-  hidden: { x: "130%" },
+export const xSlide = {
+  hidden: { x: "150%" },
   show: {
     x: "0%",
 
@@ -48,5 +48,14 @@ export const grow = {
     opacity: 1,
 
     transition: { duration: 2 },
+  },
+};
+
+export const fade = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+
+    transition: { duration: 0.5 },
   },
 };
