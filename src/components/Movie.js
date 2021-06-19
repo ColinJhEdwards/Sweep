@@ -4,6 +4,8 @@ import { loadMovie } from "../actions/moviesAction";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import filler from "../images/filler.jpg";
+import { grow } from "../animations";
+import axios from "axios";
 
 const Movie = ({ search }) => {
   const dispatch = useDispatch();
@@ -12,11 +14,14 @@ const Movie = ({ search }) => {
     dispatch(loadMovie(search));
   }, [search]);
   // get data from state
-  const { movie } = useSelector((state) => state.movies);
+  const { movie, trailer } = useSelector((state) => state.movies);
   console.log(movie);
+  console.log("trailer", trailer);
+
+  //Youtube stuff
 
   return (
-    <MovieStyle>
+    <MovieStyle variants={grow}>
       <div className="content">
         <h2>{movie.Title}</h2>
         <div className="test">
@@ -71,6 +76,9 @@ const MovieStyle = styled(motion.div)`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    padding: 2rem;
+    border-radius: 15px;
     h2 {
       font-size: 3rem;
       margin-bottom: 2rem;
@@ -83,8 +91,8 @@ const MovieStyle = styled(motion.div)`
     .picture {
       margin: 0rem 1rem;
       img {
-        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
-        border-radius: 5px;
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
+        border-radius: 10px;
       }
     }
     .info {

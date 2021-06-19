@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Movie from "../components/Movie";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { pageAnimation } from "../animations";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -17,7 +18,12 @@ const Home = () => {
   };
 
   return (
-    <StyledHome>
+    <StyledHome
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="form">
         <form>
           <input type="text" value={inp} onChange={handleInputChange} />

@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body{
-    font-family: 'Staatliches', cursive;
+    font-family: 'Anton', sans-serif;
     background: #1d1d1d;
     color: white;
 }

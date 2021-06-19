@@ -1,5 +1,6 @@
 const initState = {
   movie: [],
+  trailer: [],
 };
 
 const moviesReducer = (state = initState, action) => {
@@ -8,6 +9,7 @@ const moviesReducer = (state = initState, action) => {
       return {
         ...state,
         movie: action.payload.movie,
+        trailer: action.payload.trailer,
       };
     default:
       return { ...state };
