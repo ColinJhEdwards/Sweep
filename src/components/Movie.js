@@ -17,8 +17,7 @@ const Movie = ({ search }) => {
   const { movie, trailer } = useSelector((state) => state.movies);
   console.log(movie);
   console.log("trailer", trailer);
-
-  //Youtube stuff
+  const videoSrc = `https://www.youtube.com/embed/${trailer}`;
 
   return (
     <MovieStyle variants={grow}>
@@ -34,6 +33,9 @@ const Movie = ({ search }) => {
               <p>IMDb Rating: {movie.imdbRating}/10</p>
               <p>MetaScore: {movie.Metascore}</p>
             </div>
+          </div>
+          <div className="video">
+            <iframe src={videoSrc} frameborder="0"></iframe>
           </div>
           <div className="info">
             <p>Released: {movie.Released}</p>
