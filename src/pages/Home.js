@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import FoodSVG from "../components/FoodSVG";
+//redux stuff
+import { useSelector, useDispatch } from "react-redux";
+import { loadMovieList } from "../actions/movieListAction";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadMovieList());
+  }, [dispatch]);
+
+  const popular = useSelector((state) => state);
+
   return (
     <StyledHome>
-      <h2>Home</h2>
-      <FoodSVG />
+      <div>
+        <h2>Home</h2>
+      </div>
+      <div className="movies"></div>
     </StyledHome>
   );
 };
