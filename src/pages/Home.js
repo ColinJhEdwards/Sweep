@@ -13,7 +13,9 @@ const Home = () => {
     dispatch(loadMovieList());
   }, [dispatch]);
 
-  const { popular, nowPlaying } = useSelector((state) => state.movieList);
+  const { popular, nowPlaying, topRated } = useSelector(
+    (state) => state.movieList
+  );
   console.log(popular);
 
   return (
@@ -25,6 +27,7 @@ const Home = () => {
       <Line></Line>
       <div className="movies">
         <h2 className="type">Popular</h2>
+        <div className="underline"></div>
         <div className="list">
           {popular.map((movie) => (
             <MovieCard
@@ -38,8 +41,22 @@ const Home = () => {
         </div>
         <Line></Line>
         <h2 className="type">Now Playing</h2>
+        <div className="underline"></div>
         <div className="list">
           {nowPlaying.map((movie) => (
+            <MovieCard
+              title={movie.title}
+              imagePath={movie.poster_path}
+              release={movie.release_date}
+              key={movie.id}
+              id={movie.id}
+            />
+          ))}
+        </div>
+        <Line></Line>
+        <h2 className="type">Top Rated</h2>
+        <div className="list">
+          {topRated.map((movie) => (
             <MovieCard
               title={movie.title}
               imagePath={movie.poster_path}
@@ -66,9 +83,11 @@ const StyledHome = styled(motion.div)`
       opacity: 0.7;
     }
   }
+
   .type {
     margin: 1rem 0rem;
   }
+
   .list {
     min-height: 80vh;
     display: grid;
