@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { pageAnimation } from "../animations";
 import MovieCard from "../components/MovieCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faTicketAlt,
+  faCrown,
+} from "@fortawesome/free-solid-svg-icons";
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
 import { loadMovieList } from "../actions/movieListAction";
@@ -19,15 +26,21 @@ const Home = () => {
   console.log(popular);
 
   return (
-    <StyledHome>
+    <StyledHome
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="welcome">
         <h2>Sweep</h2>
         <p>Discover your next favorite movie.</p>
       </div>
       <Line></Line>
       <div className="movies">
-        <h2 className="type">Popular</h2>
-        <div className="underline"></div>
+        <h2 className="type">
+          Popular <FontAwesomeIcon className="icon" icon={faStar} />
+        </h2>
         <div className="list">
           {popular.map((movie) => (
             <MovieCard
@@ -40,8 +53,9 @@ const Home = () => {
           ))}
         </div>
         <Line></Line>
-        <h2 className="type">Now Playing</h2>
-        <div className="underline"></div>
+        <h2 className="type">
+          Now Playing <FontAwesomeIcon className="icon" icon={faTicketAlt} />
+        </h2>
         <div className="list">
           {nowPlaying.map((movie) => (
             <MovieCard
@@ -54,7 +68,9 @@ const Home = () => {
           ))}
         </div>
         <Line></Line>
-        <h2 className="type">Top Rated</h2>
+        <h2 className="type">
+          Top Rated <FontAwesomeIcon className="icon" icon={faCrown} />
+        </h2>
         <div className="list">
           {topRated.map((movie) => (
             <MovieCard
@@ -83,9 +99,9 @@ const StyledHome = styled(motion.div)`
       opacity: 0.7;
     }
   }
-
   .type {
     margin: 1rem 0rem;
+    font-size: 2rem;
   }
 
   .list {
@@ -94,6 +110,9 @@ const StyledHome = styled(motion.div)`
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 3rem;
     grid-row-gap: 5rem;
+  }
+  .icon {
+    color: blue;
   }
 `;
 

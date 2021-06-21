@@ -40,7 +40,7 @@ const Search = () => {
 };
 
 const StyledHome = styled(motion.div)`
-  min-height: 90vh;
+  min-height: 95vh;
   .form {
     min-height: 10vh;
     display: flex;
