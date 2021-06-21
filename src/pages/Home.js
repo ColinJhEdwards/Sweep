@@ -13,7 +13,7 @@ const Home = () => {
     dispatch(loadMovieList());
   }, [dispatch]);
 
-  const { popular } = useSelector((state) => state.movieList);
+  const { popular, nowPlaying } = useSelector((state) => state.movieList);
   console.log(popular);
 
   return (
@@ -22,10 +22,24 @@ const Home = () => {
         <h2>Sweep</h2>
         <p>Discover your next favorite movie.</p>
       </div>
+      <Line></Line>
       <div className="movies">
         <h2 className="type">Popular</h2>
         <div className="list">
           {popular.map((movie) => (
+            <MovieCard
+              title={movie.title}
+              imagePath={movie.poster_path}
+              release={movie.release_date}
+              key={movie.id}
+              id={movie.id}
+            />
+          ))}
+        </div>
+        <Line></Line>
+        <h2 className="type">Now Playing</h2>
+        <div className="list">
+          {nowPlaying.map((movie) => (
             <MovieCard
               title={movie.title}
               imagePath={movie.poster_path}
