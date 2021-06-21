@@ -3,10 +3,17 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { shortFade } from "../animations";
 import { Link } from "react-router-dom";
+//redux
+import { useDispatch } from "react-redux";
+import { loadMovieDetail } from "../actions/MovieDetailAction";
 
 const MovieCard = ({ title, imagePath, release, id }) => {
+  const dispatch = useDispatch();
+  const loadMovieDetailHandler = (id) => {
+    dispatch(loadMovieDetail(id));
+  };
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/movie/${id}`} onClick={() => loadMovieDetailHandler(id)}>
       <StyledCard variants={shortFade}>
         <h2>{title}</h2>
         <img
