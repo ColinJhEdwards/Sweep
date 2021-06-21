@@ -1,5 +1,6 @@
 const initState = {
   popular: [],
+  nowPlaying: [],
 };
 
 const movieListReducer = (state = initState, action) => {
@@ -8,6 +9,7 @@ const movieListReducer = (state = initState, action) => {
       return {
         ...state,
         popular: action.payload.popular,
+        nowPlaying: action.payload.nowPlaying,
       };
     default:
       return { ...state };

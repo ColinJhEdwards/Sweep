@@ -15,5 +15,7 @@ export const searchTrailerURL = (search) => `${trailerURL}q=${search}trailer`;
 //base URL for movieLISTS
 const listKey = process.env.REACT_APP_MOVIELIST_APIKEY;
 const popularListURL = `https://api.themoviedb.org/3/movie/popular?api_key=${listKey}&language=en-US&page=1`;
+const upcominListURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${listKey}&language=en-US&page=1`;
 
 export const searchPopularURL = () => popularListURL;
+export const searchNowPlayingURL = () => upcominListURL;
