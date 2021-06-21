@@ -9,6 +9,7 @@ import {
   faTicketAlt,
   faCrown,
 } from "@fortawesome/free-solid-svg-icons";
+import omdbCred from "../images/omdbCred.png";
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
 import { loadMovieList } from "../actions/movieListAction";
@@ -32,6 +33,9 @@ const Home = () => {
       animate="show"
       exit="exit"
     >
+      <div className="omdb">
+        <img src={omdbCred} alt="logo" />
+      </div>
       <div className="welcome">
         <h2>Sweep</h2>
         <p>Discover your next favorite movie.</p>
@@ -92,6 +96,12 @@ const StyledHome = styled(motion.div)`
   min-height: 90vh;
   width: 90%;
   margin: auto;
+  position: relative;
+  .omdb {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .welcome {
     text-align: center;
     margin: 1rem 0rem;
@@ -101,7 +111,7 @@ const StyledHome = styled(motion.div)`
   }
   .type {
     margin: 1rem 0rem;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .list {
