@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { shortFade } from "../animations";
+import { Link } from "react-router-dom";
 
-const MovieCard = ({ title, imagePath, release }) => {
+const MovieCard = ({ title, imagePath, release, id }) => {
   return (
-    <StyledCard>
-      <h2>{title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/original${imagePath}`}
-        alt="poster"
-      />
-      <p>{release}</p>
-    </StyledCard>
+    <Link to={`/movie/${id}`}>
+      <StyledCard variants={shortFade}>
+        <h2>{title}</h2>
+        <img
+          src={`https://image.tmdb.org/t/p/original${imagePath}`}
+          alt="poster"
+        />
+        <p>{release}</p>
+      </StyledCard>
+    </Link>
   );
 };
 
@@ -30,6 +34,7 @@ const StyledCard = styled(motion.div)`
   }
   h2 {
     text-align: center;
+    font-size: 1.1rem;
   }
   h2,
   p {

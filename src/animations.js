@@ -59,3 +59,12 @@ export const fade = {
     transition: { duration: 0.5 },
   },
 };
+
+export const shortFade = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+
+    transition: { duration: 0.2 },
+  },
+};

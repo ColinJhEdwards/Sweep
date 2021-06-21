@@ -101,6 +101,9 @@ const StyledHome = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;
+    img {
+      width: 100px;
+    }
   }
   .welcome {
     text-align: center;

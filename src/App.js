@@ -4,6 +4,7 @@ import Search from "./pages/Search";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import MovieDetail from "./pages/MovieDetail";
 import { GlobalStyles } from "./components/GlobalStyles";
 //animate presense is required to have animations work when transition between pages
 import { AnimatePresence } from "framer-motion";
@@ -18,6 +19,9 @@ function App() {
         <Switch location={location} key={location.key}>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/movie/:id">
+            <MovieDetail />
           </Route>
           <Route path="/search">
             <Search />
