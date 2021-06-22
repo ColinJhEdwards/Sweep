@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animations";
+import { fade } from "../animations";
+import { pageAnimation2 } from "../animations";
 import MovieCard from "../components/MovieCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -28,7 +29,7 @@ const Home = () => {
 
   return (
     <StyledHome
-      variants={pageAnimation}
+      variants={pageAnimation2}
       initial="hidden"
       animate="show"
       exit="exit"
@@ -47,20 +48,22 @@ const Home = () => {
         </h2>
         <div className="list">
           {popular.map((movie) => (
-            <MovieCard
-              title={movie.title}
-              imagePath={movie.poster_path}
-              release={movie.release_date}
-              key={movie.id}
-              id={movie.id}
-            />
+            <motion.div variants={fade}>
+              <MovieCard
+                title={movie.title}
+                imagePath={movie.poster_path}
+                release={movie.release_date}
+                key={movie.id}
+                id={movie.id}
+              />
+            </motion.div>
           ))}
         </div>
         <Line></Line>
         <h2 className="type">
           Now Playing <FontAwesomeIcon className="icon" icon={faTicketAlt} />
         </h2>
-        <div className="list">
+        <motion.div variants={fade} className="list">
           {nowPlaying.map((movie) => (
             <MovieCard
               title={movie.title}
@@ -70,12 +73,12 @@ const Home = () => {
               id={movie.id}
             />
           ))}
-        </div>
+        </motion.div>
         <Line></Line>
         <h2 className="type">
           Top Rated <FontAwesomeIcon className="icon" icon={faCrown} />
         </h2>
-        <div className="list">
+        <motion.div variants={fade} className="list">
           {topRated.map((movie) => (
             <MovieCard
               title={movie.title}
@@ -85,7 +88,7 @@ const Home = () => {
               id={movie.id}
             />
           ))}
-        </div>
+        </motion.div>
         <Line></Line>
       </div>
     </StyledHome>

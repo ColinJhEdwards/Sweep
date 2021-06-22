@@ -14,7 +14,7 @@ const MovieCard = ({ title, imagePath, release, id }) => {
   };
   return (
     <Link to={`/movie/${id}`} onClick={() => loadMovieDetailHandler(id)}>
-      <StyledCard variants={shortFade}>
+      <StyledCard>
         <h2>{title}</h2>
         <img
           src={`https://image.tmdb.org/t/p/original${imagePath}`}
