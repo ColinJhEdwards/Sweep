@@ -12,9 +12,10 @@ const movieListReducer = (state = initState, action) => {
         popular: action.payload.popular,
         nowPlaying: action.payload.nowPlaying,
         topRated: action.payload.topRated,
+        isLoading: false,
       };
     default:
-      return { ...state };
+      return { ...state, isLoading: true };
   }
 };
 

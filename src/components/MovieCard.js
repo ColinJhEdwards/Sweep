@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 //redux
 import { useDispatch } from "react-redux";
 import { loadMovieDetail } from "../actions/MovieDetailAction";
+import { loadMovie } from "../actions/moviesAction";
 
 const MovieCard = ({ title, imagePath, release, id }) => {
   const dispatch = useDispatch();
-  const loadMovieDetailHandler = (id) => {
+  const loadMovieDetailHandler = (id, title) => {
     dispatch(loadMovieDetail(id));
+    dispatch(loadMovie(title));
   };
+
   return (
-    <Link to={`/movie/${id}`} onClick={() => loadMovieDetailHandler(id)}>
+    <Link to={`/movie/${id}`} onClick={() => loadMovieDetailHandler(id, title)}>
       <StyledCard>
         <h2>{title}</h2>
         <img

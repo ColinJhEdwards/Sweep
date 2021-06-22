@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { fade } from "../animations";
 import { pageAnimation2 } from "../animations";
 import MovieCard from "../components/MovieCard";
+import Test from "./test";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -22,10 +23,11 @@ const Home = () => {
     dispatch(loadMovieList());
   }, [dispatch]);
 
-  const { popular, nowPlaying, topRated } = useSelector(
+  const { popular, nowPlaying, topRated, isLoading } = useSelector(
     (state) => state.movieList
   );
-  console.log(popular);
+
+  console.log(isLoading);
 
   return (
     <StyledHome
@@ -42,6 +44,7 @@ const Home = () => {
         <p>Discover your next favorite movie.</p>
       </div>
       <Line></Line>
+
       <div className="movies">
         <h2 className="type">
           Popular <FontAwesomeIcon className="icon" icon={faStar} />
