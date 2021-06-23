@@ -192,6 +192,64 @@ const MovieStyle = styled(motion.div)`
       margin: 1rem;
     }
   }
+  @media (max-width: 1020px) {
+    .test {
+      flex-direction: column;
+      .video {
+        iframe {
+          height: 250px;
+          width: 400px;
+        }
+      }
+      .info {
+        flex-direction: row;
+        p {
+          font-size: 1rem;
+          margin: 1rem 1rem;
+        }
+      }
+    }
+    .wrap {
+      flex-direction: column;
+    }
+    .awards {
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  @media (max-width: 414px) {
+    .test {
+      .video {
+        iframe {
+          width: 350px;
+        }
+      }
+    }
+    .content {
+      box-shadow: 0px 0px 0px black;
+      padding: 0rem;
+    }
+  }
+  @media (max-width: 320px) {
+    .test {
+      .video {
+        iframe {
+          width: 300px;
+        }
+      }
+    }
+    .content {
+      padding: 0rem;
+    }
+    .wrap {
+      .plot {
+        width: 80%;
+      }
+    }
+  }
 `;
 
 const Line = styled.div`

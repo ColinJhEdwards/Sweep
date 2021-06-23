@@ -47,7 +47,8 @@ const Home = () => {
 
       <div className="movies">
         <h2 className="type">
-          Popular <FontAwesomeIcon className="icon" icon={faStar} />
+          <FontAwesomeIcon className="icon" icon={faStar} /> Popular{" "}
+          <FontAwesomeIcon className="icon" icon={faStar} />
         </h2>
         <div className="list">
           {popular.map((movie) => (
@@ -64,7 +65,8 @@ const Home = () => {
         </div>
         <Line></Line>
         <h2 className="type">
-          Now Playing <FontAwesomeIcon className="icon" icon={faTicketAlt} />
+          <FontAwesomeIcon className="icon" icon={faTicketAlt} /> Now Playing{" "}
+          <FontAwesomeIcon className="icon" icon={faTicketAlt} />
         </h2>
         <motion.div variants={fade} className="list">
           {nowPlaying.map((movie) => (
@@ -79,7 +81,8 @@ const Home = () => {
         </motion.div>
         <Line></Line>
         <h2 className="type">
-          Top Rated <FontAwesomeIcon className="icon" icon={faCrown} />
+          <FontAwesomeIcon className="icon" icon={faCrown} /> Top Rated{" "}
+          <FontAwesomeIcon className="icon" icon={faCrown} />
         </h2>
         <motion.div variants={fade} className="list">
           {topRated.map((movie) => (
@@ -132,6 +135,18 @@ const StyledHome = styled(motion.div)`
   }
   .icon {
     color: blue;
+  }
+  @media (max-width: 1495px) {
+    .list {
+      min-height: 0vh;
+      display: flex;
+      overflow-x: scroll;
+    }
+  }
+  @media (max-width: 414px) {
+    .type {
+      text-align: center;
+    }
   }
 `;
 

@@ -55,6 +55,10 @@ const StyledCard = styled(motion.div)`
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     border-radius: 10px;
   }
+  @media (max-width: 1495px) {
+    margin: 1rem;
+    padding: 2rem;
+  }
 `;
 
 export default MovieCard;

@@ -69,6 +69,20 @@ const StyledHome = styled(motion.div)`
       }
     }
   }
+  @media (max-width: 414px) {
+    .form {
+      input {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    .form {
+      input {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
 
 export default Search;
