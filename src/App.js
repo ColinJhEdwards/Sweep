@@ -8,6 +8,7 @@ import MovieDetail from "./pages/MovieDetail";
 import { GlobalStyles } from "./components/GlobalStyles";
 //animate presense is required to have animations work when transition between pages
 import { AnimatePresence } from "framer-motion";
+require("dotenv").config();
 
 function App() {
   const location = useLocation();
