@@ -77,6 +77,88 @@ const StyledDetails = styled(motion.div)`
       margin: 2rem 0rem;
     }
   }
+  @media (max-width: 1410px) {
+    .movie {
+      .backdrop {
+        width: 1200px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .movie {
+      .backdrop {
+        width: 800px;
+      }
+    }
+  }
+  @media (max-width: 815px) {
+    .movie {
+      iframe {
+        height: 300px;
+        width: 500px;
+      }
+      .backdrop {
+        width: 500px;
+      }
+    }
+  }
+  @media (max-width: 414px) {
+    .movie {
+      iframe {
+        height: 300px;
+        width: 400px;
+      }
+      .desc {
+        .poster {
+          width: 350px;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .backdrop {
+        width: 400px;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    .movie {
+      iframe {
+        height: 250px;
+        width: 350px;
+      }
+      .desc {
+        .poster {
+          width: 350px;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .backdrop {
+        width: 350px;
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    .movie {
+      iframe {
+        height: 200px;
+        width: 300px;
+      }
+      .desc {
+        .poster {
+          width: 300px;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .backdrop {
+        width: 300px;
+      }
+    }
+  }
 `;
 
 const Line = styled.div`
