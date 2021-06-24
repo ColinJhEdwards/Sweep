@@ -1,6 +1,6 @@
 //base URL for movies
 const key = process.env.REACT_APP_MOVIE_APIKEY;
-const baseURL = `http://www.omdbapi.com/?apikey=${key}&r=json&`;
+const baseURL = `https://www.omdbapi.com/?apikey=${key}&r=json&`;
 
 const movie = "type=movie&plot=full";
 
