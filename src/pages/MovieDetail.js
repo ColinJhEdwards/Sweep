@@ -2,6 +2,10 @@ import react, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { pageAnimation, fade } from "../animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const MovieDetail = () => {
   const { details } = useSelector((state) => state.movieDetails);
@@ -11,11 +15,26 @@ const MovieDetail = () => {
   const { trailer } = useSelector((state) => state.movies);
   const videoSrc = `https://www.youtube.com/embed/${trailer}`;
   return (
-    <StyledDetails>
+    <StyledDetails
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
+      <div className="backArrow">
+        <Link to="/">
+          <FontAwesomeIcon className="arrow" icon={faArrowCircleLeft} />
+        </Link>
+      </div>
       <div className="movie">
-        <h2>{details.title}</h2>
+        <motion.h2 variants={fade}>{details.title}</motion.h2>
         <Line />
-        <iframe src={videoSrc}></iframe>
+        <motion.iframe
+          variants={fade}
+          src={videoSrc}
+          title="movieDetail-trailer"
+          frameborder="0"
+        ></motion.iframe>
         <Line />
         <div className="desc">
           <img
@@ -39,6 +58,17 @@ const StyledDetails = styled(motion.div)`
   min-height: 95vh;
   width: 80%;
   margin: auto;
+  position: relative;
+  .backArrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .arrow {
+      font-size: 5rem;
+      margin: 2rem 0rem;
+      cursor: pointer;
+    }
+  }
   .movie {
     display: flex;
     flex-direction: column;
@@ -47,6 +77,7 @@ const StyledDetails = styled(motion.div)`
     h2 {
       font-size: 3rem;
       margin: 2rem 0rem;
+      text-align: center;
     }
     iframe {
       height: 500px;

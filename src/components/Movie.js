@@ -37,7 +37,11 @@ const Movie = ({ search }) => {
         <div className="test">
           <Hide>
             <motion.div variants={ySlide} className="video">
-              <iframe src={videoSrc} frameborder="0"></iframe>
+              <iframe
+                src={videoSrc}
+                title="movieSearch-trailer"
+                frameborder="0"
+              ></iframe>
             </motion.div>
           </Hide>
           <div className="info">

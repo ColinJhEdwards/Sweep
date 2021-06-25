@@ -157,8 +157,18 @@ const StyledHome = styled(motion.div)`
     }
   }
   @media (max-width: 414px) {
+    .omdb {
+      img {
+        width: 50px;
+      }
+    }
     .type {
       text-align: center;
+    }
+  }
+  @media (max-width: 375px) {
+    .type {
+      font-size: 2rem;
     }
   }
 `;
