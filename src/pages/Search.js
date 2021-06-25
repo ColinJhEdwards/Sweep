@@ -28,7 +28,12 @@ const Search = () => {
     >
       <div className="form">
         <form>
-          <input type="text" value={inp} onChange={handleInputChange} />
+          <input
+            type="text"
+            value={inp}
+            onChange={handleInputChange}
+            placeholder="Search"
+          />
           <button onClick={handleSearchSubmit}>
             <FontAwesomeIcon icon={faSearch} />
           </button>

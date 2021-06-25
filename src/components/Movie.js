@@ -231,6 +231,12 @@ const MovieStyle = styled(motion.div)`
           width: 350px;
         }
       }
+      .info {
+        flex-wrap: wrap;
+        p {
+          font-size: 1rem;
+        }
+      }
     }
     .content {
       box-shadow: 0px 0px 0px black;

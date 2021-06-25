@@ -21,7 +21,7 @@ const MovieDetail = () => {
       animate="show"
       exit="exit"
     >
-      <div className="backArrow">
+      <div className="backArrow" title="Go Back">
         <Link to="/">
           <FontAwesomeIcon className="arrow" icon={faArrowCircleLeft} />
         </Link>
@@ -37,7 +37,8 @@ const MovieDetail = () => {
         ></motion.iframe>
         <Line />
         <div className="desc">
-          <img
+          <motion.img
+            variants={fade}
             className="poster"
             src={`https://image.tmdb.org/t/p/original${details.poster_path}`}
             alt="poster"
@@ -134,6 +135,11 @@ const StyledDetails = styled(motion.div)`
     }
   }
   @media (max-width: 414px) {
+    .backArrow {
+      .arrow {
+        font-size: 2rem;
+      }
+    }
     .movie {
       iframe {
         height: 300px;
