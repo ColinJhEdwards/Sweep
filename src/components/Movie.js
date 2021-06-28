@@ -24,8 +24,6 @@ const Movie = ({ search }) => {
   }, [search]);
   // get data from state
   const { movie, trailer } = useSelector((state) => state.movies);
-  console.log("searched", movie);
-  console.log("trailer", trailer);
 
   // const videoSrc = `https://www.youtube.com/embed/${trailer.id.videoId}`;
 
