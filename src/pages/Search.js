@@ -67,6 +67,7 @@ const StyledHome = styled(motion.div)`
       cursor: pointer;
       padding: 0.7rem 1rem;
       margin-left: 1rem;
+      border-radius: 15px;
       transition: all ease 0.5s;
       &:hover {
         color: #0b0ba5;

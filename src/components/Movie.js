@@ -32,7 +32,7 @@ const Movie = ({ search }) => {
   return (
     <>
       {movie.Response === "False" ? (
-        <Test />
+        <Test search={search} />
       ) : (
         <MovieStyle variants={grow}>
           <motion.div variants={fade} className="content">
