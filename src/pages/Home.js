@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { fade } from "../animations";
 import { pageAnimation2 } from "../animations";
 import MovieCard from "../components/MovieCard";
-import Test from "./test";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -23,11 +23,9 @@ const Home = () => {
     dispatch(loadMovieList());
   }, [dispatch]);
 
-  const { popular, nowPlaying, topRated, isLoading } = useSelector(
+  const { popular, nowPlaying, topRated } = useSelector(
     (state) => state.movieList
   );
-
-  console.log(isLoading);
 
   return (
     <StyledHome

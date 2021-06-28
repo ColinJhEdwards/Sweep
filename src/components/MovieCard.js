@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { shortFade } from "../animations";
 import { Link } from "react-router-dom";
 //redux
 import { useDispatch } from "react-redux";

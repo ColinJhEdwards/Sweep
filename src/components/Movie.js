@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadMovie } from "../actions/moviesAction";
+import Test from "../pages/test";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import filler from "../images/filler.jpg";
@@ -23,92 +24,99 @@ const Movie = ({ search }) => {
   }, [search]);
   // get data from state
   const { movie, trailer } = useSelector((state) => state.movies);
-  console.log(movie);
+  console.log("searched", movie);
   console.log("trailer", trailer);
-  const videoSrc = `https://www.youtube.com/embed/${trailer}`;
+
+  // const videoSrc = `https://www.youtube.com/embed/${trailer.id.videoId}`;
 
   return (
-    <MovieStyle variants={grow}>
-      <motion.div variants={fade} className="content">
-        <Hide>
-          <motion.h2 variants={ySlide}>{movie.Title}</motion.h2>
-        </Hide>
-        <Line></Line>
-        <div className="test">
-          <Hide>
-            <motion.div variants={ySlide} className="video">
-              <iframe
-                src={videoSrc}
-                title="movieSearch-trailer"
-                frameborder="0"
-              ></iframe>
-            </motion.div>
-          </Hide>
-          <div className="info">
+    <>
+      {movie.Response === "False" ? (
+        <Test />
+      ) : (
+        <MovieStyle variants={grow}>
+          <motion.div variants={fade} className="content">
             <Hide>
-              <motion.p variants={xSlide}>
-                <FontAwesomeIcon className="orange" icon={faCalendar} />{" "}
-                {movie.Released}
-              </motion.p>
+              <motion.h2 variants={ySlide}>{movie.Title}</motion.h2>
             </Hide>
-            <Hide>
-              <motion.p variants={xSlide}>
-                <FontAwesomeIcon className="orange" icon={faClock} />{" "}
-                {movie.Runtime}
-              </motion.p>
-            </Hide>
-            <Hide>
-              <motion.p variants={xSlide}>Rated: {movie.Rated}</motion.p>
-            </Hide>
-            <Hide>
-              <motion.p variants={xSlide}>Genre: {movie.Genre}</motion.p>
-            </Hide>
+            <Line></Line>
+            <div className="test">
+              <Hide>
+                <motion.div variants={ySlide} className="video">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${trailer.id.videoId}`}
+                    title="movieSearch-trailer"
+                    frameBorder="0"
+                  ></iframe>
+                </motion.div>
+              </Hide>
+              <div className="info">
+                <Hide>
+                  <motion.p variants={xSlide}>
+                    <FontAwesomeIcon className="orange" icon={faCalendar} />{" "}
+                    {movie.Released}
+                  </motion.p>
+                </Hide>
+                <Hide>
+                  <motion.p variants={xSlide}>
+                    <FontAwesomeIcon className="orange" icon={faClock} />{" "}
+                    {movie.Runtime}
+                  </motion.p>
+                </Hide>
+                <Hide>
+                  <motion.p variants={xSlide}>Rated: {movie.Rated}</motion.p>
+                </Hide>
+                <Hide>
+                  <motion.p variants={xSlide}>Genre: {movie.Genre}</motion.p>
+                </Hide>
+              </div>
+            </div>
+          </motion.div>
+          <div className="wrap">
+            <div className="picture">
+              <img
+                src={movie.Poster === "N/A" ? filler : movie.Poster}
+                alt="poster"
+              />
+              <div className="ratings">
+                <p>IMDb Rating: {movie.imdbRating}/10</p>
+                <p>MetaScore: {movie.Metascore}</p>
+              </div>
+            </div>
+            <div className="plot">
+              <p>{movie.Plot}</p>
+            </div>
           </div>
-        </div>
-      </motion.div>
-      <div className="wrap">
-        <div className="picture">
-          <img
-            src={movie.Poster === "N/A" ? filler : movie.Poster}
-            alt="poster"
-          />
-          <div className="ratings">
-            <p>IMDb Rating: {movie.imdbRating}/10</p>
-            <p>MetaScore: {movie.Metascore}</p>
+          <Line></Line>
+          <div className="awards">
+            <p>
+              <span>
+                <FontAwesomeIcon icon={faAward} /> Awards:{" "}
+              </span>{" "}
+              {movie.Awards}
+            </p>
+            <p>
+              <span>
+                <FontAwesomeIcon icon={faUsers} /> Actors:{" "}
+              </span>{" "}
+              {movie.Actors}
+            </p>
+            <p>
+              <span>
+                <FontAwesomeIcon icon={faBullhorn} /> Director(s):{" "}
+              </span>{" "}
+              {movie.Director}
+            </p>
+            <p>
+              <span>
+                <FontAwesomeIcon icon={faPen} /> Writer(s):{" "}
+              </span>{" "}
+              {movie.Writer}
+            </p>
           </div>
-        </div>
-        <div className="plot">
-          <p>{movie.Plot}</p>
-        </div>
-      </div>
-      <Line></Line>
-      <div className="awards">
-        <p>
-          <span>
-            <FontAwesomeIcon icon={faAward} /> Awards:{" "}
-          </span>{" "}
-          {movie.Awards}
-        </p>
-        <p>
-          <span>
-            <FontAwesomeIcon icon={faUsers} /> Actors:{" "}
-          </span>{" "}
-          {movie.Actors}
-        </p>
-        <p>
-          <span>
-            <FontAwesomeIcon icon={faBullhorn} /> Director(s):{" "}
-          </span>{" "}
-          {movie.Director}
-        </p>
-        <p>
-          <span>
-            <FontAwesomeIcon icon={faPen} /> Writer(s):{" "}
-          </span>{" "}
-          {movie.Writer}
-        </p>
-      </div>
-    </MovieStyle>
+        </MovieStyle>
+      )}
+    </>
   );
 };
 
