@@ -13,7 +13,7 @@ const MovieDetail = () => {
     window.scrollTo(0, 0);
   }, []);
   const { trailer } = useSelector((state) => state.movies);
-  const videoSrc = `https://www.youtube.com/embed/${trailer}`;
+
   return (
     <StyledDetails
       variants={pageAnimation}
@@ -31,7 +31,7 @@ const MovieDetail = () => {
         <Line />
         <motion.iframe
           variants={fade}
-          src={videoSrc}
+          src={`https://www.youtube.com/embed/${trailer.id.videoId}`}
           title="movieDetail-trailer"
           frameborder="0"
         ></motion.iframe>

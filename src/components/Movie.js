@@ -167,6 +167,7 @@ const MovieStyle = styled(motion.div)`
       align-items: center;
       justify-content: center;
       margin: 0rem 1rem;
+      width: 20%;
       .orange {
         color: #c07d00;
       }
@@ -215,6 +216,7 @@ const MovieStyle = styled(motion.div)`
       }
       .info {
         flex-direction: row;
+        width: 100%;
         p {
           font-size: 1rem;
           margin: 1rem 1rem;
