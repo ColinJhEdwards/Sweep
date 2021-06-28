@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadMovieDetail } from "../actions/MovieDetailAction";
 import { loadMovie } from "../actions/moviesAction";
+//lazy load
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const MovieCard = ({ title, imagePath, release, id }) => {
   const dispatch = useDispatch();
@@ -19,9 +22,10 @@ const MovieCard = ({ title, imagePath, release, id }) => {
     <Link to={`/movie/${id}`} onClick={() => loadMovieDetailHandler(id, title)}>
       <StyledCard>
         <h2>{title}</h2>
-        <img
+        <LazyLoadImage
           src={`https://image.tmdb.org/t/p/original${imagePath}`}
           alt="poster"
+          effect="blur"
         />
         <p>{release}</p>
       </StyledCard>
