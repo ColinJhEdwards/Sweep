@@ -44,7 +44,7 @@ const Movie = ({ search }) => {
               <Hide>
                 <motion.div variants={ySlide} className="video">
                   <iframe
-                    src={`https://www.youtube.com/embed/${trailer.id.videoId}`}
+                    src={`https://www.youtube.com/embed/${trailer.items[0].id.videoId}`}
                     title="movieSearch-trailer"
                     frameBorder="0"
                   ></iframe>

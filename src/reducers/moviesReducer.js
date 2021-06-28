@@ -1,6 +1,14 @@
 const initState = {
   movie: [],
-  trailer: [],
+  trailer: {
+    items: [
+      {
+        id: {
+          videoId: "",
+        },
+      },
+    ],
+  },
 };
 
 const moviesReducer = (state = initState, action) => {
