@@ -2,22 +2,22 @@
 
 ## Table Of Contents
 
-- [Description](#Description)
-- [Deployed Application](#Deployed-Application)
-- [User Story](#User-Story)
-- [Installation](#Installation)
-- [Screenshots](#Screenshots)
-- [Contributors](#Contributors)
+- [Description](#description)
+- [Deployed Application](###deployed-Application)
+- [User Story](#user-Story)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
-### Description
+## Description
 
 Sweep is an online database of information related to movies. Users are able to browse a collection of movies including popular, top rated, and movies currently playing in theaters. Users are also able to search for specific movies and view a variety of information such as the movies trailer, release date, description, actors, and more.
 
-### Deployed-Application
+## Deployed-Application
 
 https://sweep-movies.herokuapp.com/
 
-### User-Story
+## User-Story
 
     As A movie enthusiast,
 
@@ -25,13 +25,13 @@ https://sweep-movies.herokuapp.com/
 
     SO THAT I can either learn more about a specific movie or decide what movie to watch next.
 
-### Installation
+## Installation
 
 - Clone the repository from https://github.com/ColinJhEdwards/Sweep.
 - Cd into the correct folder and enter "npm i" to install necessary packages.
 - Enter "npm start" to start the server.
 
-### Screenshots
+## Screenshots
 
 ![home-page](src/images/preview/home.png)
 
@@ -45,7 +45,7 @@ https://sweep-movies.herokuapp.com/
 
 ![search-fail](src/images/preview/searchFail.png)
 
-### Contributors
+## Contributors
 
 This app brought to you by:
 
