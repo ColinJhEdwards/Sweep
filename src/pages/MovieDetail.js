@@ -31,7 +31,7 @@ const MovieDetail = () => {
         <Line />
         <motion.iframe
           variants={fade}
-          src={`https://www.youtube.com/embed/${trailer.id.videoId}`}
+          src={`https://www.youtube.com/embed/${trailer.items[0].id.videoId}`}
           title="movieDetail-trailer"
           frameborder="0"
         ></motion.iframe>
