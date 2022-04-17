@@ -5,12 +5,6 @@ import { fade } from "../animations";
 import { pageAnimation2 } from "../animations";
 import MovieCard from "../components/MovieCard";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faTicketAlt,
-  faCrown,
-} from "@fortawesome/free-solid-svg-icons";
 import omdbCred from "../images/omdbCred.png";
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
@@ -44,10 +38,7 @@ const Home = () => {
       <Line></Line>
 
       <div className="movies">
-        <h2 className="type">
-          <FontAwesomeIcon className="icon" icon={faStar} /> Popular{" "}
-          <FontAwesomeIcon className="icon" icon={faStar} />
-        </h2>
+        <h2 className="type">Popular </h2>
         <div className="list">
           {popular.map((movie) => (
             <motion.div variants={fade}>
@@ -62,10 +53,7 @@ const Home = () => {
           ))}
         </div>
         <Line></Line>
-        <h2 className="type">
-          <FontAwesomeIcon className="icon" icon={faTicketAlt} /> Now Playing{" "}
-          <FontAwesomeIcon className="icon" icon={faTicketAlt} />
-        </h2>
+        <h2 className="type">Now Playing </h2>
         <motion.div variants={fade} className="list">
           {nowPlaying.map((movie) => (
             <MovieCard
@@ -78,10 +66,7 @@ const Home = () => {
           ))}
         </motion.div>
         <Line></Line>
-        <h2 className="type">
-          <FontAwesomeIcon className="icon" icon={faCrown} /> Top Rated{" "}
-          <FontAwesomeIcon className="icon" icon={faCrown} />
-        </h2>
+        <h2 className="type">Top Rated </h2>
         <motion.div variants={fade} className="list">
           {topRated.map((movie) => (
             <MovieCard

@@ -67,7 +67,7 @@ const StyledCard = styled(motion.div)`
   }
   @media (max-width: 1495px) {
     margin: 1rem;
-    padding: 2rem;
+    width: 300px;
   }
 `;
 
