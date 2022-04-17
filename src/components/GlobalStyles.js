@@ -15,7 +15,7 @@ body{
 a{
     text-decoration: none;
     color: white;
-    transition: all ease 0.5s;
+    transition: all ease 0.3s;
         &:hover {
           color: #c07d00;
           text-decoration: none;

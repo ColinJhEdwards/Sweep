@@ -43,10 +43,10 @@ const StyledCard = styled(motion.div)`
   border-radius: 10px;
   padding: 0rem;
   position: relative;
-  transition: all ease 0.5s;
+  transition: all ease 0.3s;
   cursor: pointer;
   &:hover {
-    box-shadow: 0px 0px 20px rgb(4, 0, 218);
+    transform: translateY(-10px);
   }
   .hide {
     overflow: hidden;
