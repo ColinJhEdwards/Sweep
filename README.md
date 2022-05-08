@@ -15,7 +15,7 @@ Sweep is an online database of information related to movies. Users are able to 
 
 ## Deployed-Application
 
-https://sweep-movies.herokuapp.com/
+https://colinjhedwards.github.io/Sweep/
 
 ## User-Story
 
