@@ -2,7 +2,11 @@ const initState = {
   details: [],
 };
 
-const movieDetailsReducer = (state = initState, action) => {
+interface Action {
+  type: "FETCH_MOVIEDETAIL";
+}
+
+const movieDetailsReducer = (state = initState, action: Action) => {
   switch (action.type) {
     case "FETCH_MOVIEDETAIL":
       return {

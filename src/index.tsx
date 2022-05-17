@@ -12,6 +12,13 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// adding property of composeEnhancer to global window since typescript does not know the type.
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
 // this variable is how we add thunk to the store since you can only have 2 arguments
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
