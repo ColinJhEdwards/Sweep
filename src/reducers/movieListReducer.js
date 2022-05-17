@@ -1,5 +1,5 @@
 const initState = {
-  popular: [],
+  comingSoon: [],
   nowPlaying: [],
   topRated: [],
 };
@@ -9,7 +9,7 @@ const movieListReducer = (state = initState, action) => {
     case "FETCH_MOVIELIST":
       return {
         ...state,
-        popular: action.payload.popular,
+        comingSoon: action.payload.comingSoon,
         nowPlaying: action.payload.nowPlaying,
         topRated: action.payload.topRated,
         isLoading: false,

@@ -17,7 +17,7 @@ const Home = () => {
     dispatch(loadMovieList());
   }, [dispatch]);
 
-  const { popular, nowPlaying, topRated } = useSelector(
+  const { comingSoon, nowPlaying, topRated } = useSelector(
     (state) => state.movieList
   );
 
@@ -38,9 +38,9 @@ const Home = () => {
       <Line></Line>
 
       <div className="movies">
-        <h2 className="type">Popular </h2>
-        <div className="list">
-          {popular.map((movie) => (
+        <h2 className="type">Now Playing </h2>
+        <motion.div variants={fade} className="list">
+          {nowPlaying.map((movie) => (
             <motion.div variants={fade}>
               <MovieCard
                 title={movie.title}
@@ -51,11 +51,11 @@ const Home = () => {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         <Line></Line>
-        <h2 className="type">Now Playing </h2>
-        <motion.div variants={fade} className="list">
-          {nowPlaying.map((movie) => (
+        <h2 className="type">Coming Soon </h2>
+        <div className="list">
+          {comingSoon.map((movie) => (
             <MovieCard
               title={movie.title}
               imagePath={movie.poster_path}
@@ -64,8 +64,9 @@ const Home = () => {
               id={movie.id}
             />
           ))}
-        </motion.div>
+        </div>
         <Line></Line>
+
         <h2 className="type">Top Rated </h2>
         <motion.div variants={fade} className="list">
           {topRated.map((movie) => (
