@@ -14,6 +14,8 @@ const MovieDetail = () => {
   }, []);
   const { trailer } = useSelector((state) => state.movies);
 
+  console.log(details);
+
   return (
     <StyledDetails
       variants={pageAnimation}
